@@ -76,3 +76,86 @@ int main(int argc, char** argv)
     fclose(fp);
 }
 ```
+
+## String Manipulation
+* Strings are character arrays in C. The standard string library functions are in `string.h`. Typical string functions include:
+    * `strlen()`
+    * `strcat()`
+    * `strcmp()`
+* We can read from and write to strings using hte function `sscanf()` for input and `sprintf()` for output.
+    * Read an integer: `sscanf(s, "%d", &i)`
+    * Write an integer to a string: `sprintf(s, "&d", &i)`
+
+## Dynamic Memory
+* Dynamic allocated memory is manipulated using *operators* in C++, and *functions* in C.
+    * `malloc() / calloc() / alloc()` instead of `new`
+    * `free()` instead of `delete`
+
+* Declare / Allocate / Deallocate an int array with N elements
+
+    * C++
+    ```
+    int *pA;
+    pA = new int[N];
+    delete [] pA;
+    ```
+
+    * C
+        * **NOTE:** free() may not need a `void*` to work, dependent upon the compiler.
+    ```
+    int *pA;
+    pA = (int*)malloc(N* sizeof(int));
+    free((void*)pA);
+    ```
+
+* Same thing, 2D array with nRows and nColumns
+
+    * C++
+    ```
+    int** arr2D;
+
+    arr2D = new int* [nRows];
+
+    for(int i = 0; i < nRows; i++)
+    {
+        arr2D[i] = new int[nCols];
+
+        //check for valid memory
+        if(arr2D == NULL)
+        {
+            cout << "Error" << endl;
+        }
+    }
+
+    for(int i = 0; i < nRows; i++)
+    {
+        delete arr2D[i];
+    }
+
+    delete [] arr2D;
+    ```
+
+    * C
+    ```
+    int** arr2D;
+
+    //init array
+    arr2D = (int**)malloc(sizeof(int*) * nRows);
+
+    //allocate rows
+    for(int i = 0; i < nRows; i++)
+    {
+        //allocate cols
+        arr2D[i] = (int*)malloc(sizeof(int) * nColumns);
+    }
+
+    //delete cols
+    for(int i = 0; i < nRows; i++)
+    {
+        free((void*)(arr2D[i]));
+    }
+    
+    //delete the whole thing
+    free((void*)arr2D);
+    ```
+

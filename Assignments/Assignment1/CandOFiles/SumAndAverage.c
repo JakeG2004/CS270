@@ -11,7 +11,7 @@ int SumAndAverage()
     }
 
     printf("Sum: %i\n", sum);
-    printf("Average: %d\n", sum / 5);
+    printf("Average: %d\n", sum / 5.0);
 
     return sum;
 }

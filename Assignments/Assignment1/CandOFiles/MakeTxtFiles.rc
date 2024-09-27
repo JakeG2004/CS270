@@ -1,0 +1,3 @@
+readelf -s combined > ../Part3/SymbolTable.txt
+readelf -S combined > ../Part3/DataHeaders.txt
+readelf -a combined > ../Part3/totalout.txt

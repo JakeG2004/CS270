@@ -1,8 +1,6 @@
 #include <stdio.h>
 
-extern int data[];
-
-int Maximum()
+int Maximum(int* data, int size)
 {
     int max = data[0];
 
@@ -13,8 +11,6 @@ int Maximum()
             max = data[i];
         }
     }
-
-    printf("Max: %i\n", max);
 
     return max;
 }

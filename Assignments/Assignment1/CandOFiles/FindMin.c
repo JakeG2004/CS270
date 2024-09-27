@@ -1,8 +1,6 @@
 #include <stdio.h>
 
-extern int data[];
-
-int Minimum()
+int Minimum(int* data, int size)
 {
     int min = data[0];
 
@@ -13,8 +11,5 @@ int Minimum()
             min = data[i];
         }
     }
-
-    printf("Min: %i\n", min);
-
     return min;
 }

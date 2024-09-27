@@ -1,0 +1,6 @@
+gcc main.c -c main.o
+gcc FindMax.c -c FindMax.o
+gcc FindMin.c -c FindMin.o
+gcc Sum.c -c Sum.o
+
+gcc main.c Sum.c FindMax.c FindMin.c -o combined

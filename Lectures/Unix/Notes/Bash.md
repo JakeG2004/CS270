@@ -68,4 +68,108 @@ fi
 
 *Note how the `if` statement is ended by the `fi` statement. Note also that the `-f` means "check for file existance"*
 
-In addition to these two files, the sysadmin can put initialization commands appropriate for all users in the file `/etc/profile` which Bash will also read and execute. Not that Bahs will read the `/etc/profile` file first, before running any initialization files belonging to the user.
+In addition to these two files, the sysadmin can put initialization commands appropriate for all users in the file `/etc/profile` which Bash will also read and execute. Not that Bash will read the `/etc/profile` file first, before running any initialization files belonging to the user.
+
+## Variables
+Bash allows the creation and use of shell variables for the following purposes:
+* Value assignment and access
+* Defining and using lists of values
+* Testing a value or for existence of a variables
+* Reading or writing a variable's value
+
+### Creating and assigning a simple variable
+To assign a value to a simple variable, the syntax is similar to that of other shells
+
+`{name = value}+`
+
+*NOTE: the `+` indicates that its value is >= 1*
+
+If a variable doesn't exist, it is implicitely created; otherwise, its previous value is overwritten. A newly created variable is always local, although we may turn it into an environment variable using `export`. To assign a value that contains spaces, surround the value by quotes. Here are some examples
+
+```
+$ teamname="San Diego Chargers"
+$ gameswon=12
+$ gameslost=4
+```
+
+*NOTE: There are no spaces around the `=` character.*
+
+### Setting variables
+
+The `set` command can be used to set and display shell settings and to display the value of shell variables
+
+```
+$ set gameslost=4
+$ set gameswon=12
+$ set teamname='San Diego Chargers'
+```
+
+*NOTE: `'` instead of `"`*
+
+### Accessing variables
+Accessing the value of a simple variable
+* `$name` - Replaced by the value of name
+* `${name}` - Replaced by the value of the name. This form is useful if the expression is immediately followed by an alphanumeric that would otherwise be interpreted as part of the variable name.
+* `${name-word}` - Replaced by the value of the name if set, and word otherwise.
+* `${name+word}` - Replaced by word if name is set, and nothing otherwise.
+
+```
+% echo $gameswon
+12
+
+% echo $teamname
+Sad Diego Chargers
+
+% echo ${teamname} | wc -w
+3
+```
+
+### Creating / assigning a list variable
+`declare [-ax] [listname]`
+
+If the named variable does not already exist, it is created. If an array name is not specified whe n `-a` is used, declar will display all currently defined arrays and their values. If the `-x` option i sused, te variable is exported to subshells. `declare` writes its output in a format that can be used again as input commands. This is useful when you want to create a script that sets variables as they are set in your list.
+
+```
+${name[i]}
+```
+
+### Accessing list variables
+Once you build a list of values, you will want to use them for something. When accessing array values, you can always put braces around the variable name to explicitely distinguish it form other text that might be around it.
+
+```
+${name[index]} - access the index'th term of the array
+${name[*]} or $name{[@]} - access all elements of the array
+${#name[*]} or ${#name[@]} - access the number of elements in the array
+```
+
+### Building lists
+You can build an array or list var in 1 of 2 ways. If you know how many elements you will need, you can use the declare built-in command.
+
+### Destroying lists
+List variables can be deallocated or destroyed using the `unset` command.
+
+```
+unset name
+unset name[index]
+```
+
+Indices automatically updated
+
+### Reading from stdin
+`read {variable} +`
+
+`read` reads one line from stdin and then assigns successive words from the line ot the specified variables. Any words that are left over are assigned to the last named varaible.
+
+```
+cat script.sh
+echo "Please enter your name: "
+read name
+echo your name is $name
+```
+
+### Exporting variables
+`export {variable}+`
+
+`exports` marks the specified variables for export to the environment. If no variables are specified, a list of all the variables marked for export is displayed.
+
+`env {variable=value}* [command]`

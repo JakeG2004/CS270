@@ -25,7 +25,7 @@ and
 
 ## Command Line Arguments
 `int main(int argc, char* argv[])`
-* argc - the number of arcumets (includes the command name itself)
+* argc - the number of argumets (includes the command name itself)
 * argv[] - a pointer to array of pointers to characters (array of strings) containing the command line arguments
 * argv[0] - the command name itself
 

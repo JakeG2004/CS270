@@ -173,3 +173,83 @@ echo your name is $name
 `exports` marks the specified variables for export to the environment. If no variables are specified, a list of all the variables marked for export is displayed.
 
 `env {variable=value}* [command]`
+
+### Read-Only Variables
+`readonly {variable}`
+
+`readonly` makes the specified variables read-only, protecting them against future modification. If no variables are specified, a list of the current read-only variables are dispalyed. Copies of exported variables do not inherit their read-only status.
+
+## Command shortcuts
+Bash provides a few ways to shorten commands and arguments you type at the keyboard
+
+### Aliases
+`alias [-p] [word[=string]]`
+
+```
+$ alias dir="ls -aF"
+
+$ dir
+./  main2.c  p.reverse.c  reverse.h
+../  main2.o  palindrome.c  reverse.old
+
+$ dir *.c
+main2.c  p.reverse.c  palindrome.c
+```
+
+### Command History
+Commands you have typed to the shell are stred in a history file defined by the `$HISTFILE` variable.
+
+#### Command Re-execution
+* !! - Last comannd
+* !`number` - Replaced with corresponding number in history
+* !-`number` - Execute the command from `number` commands ago
+* !`prefix` - Last command that started with `prefix`
+* !`?substring?` - Replaced with the text of the last command that contained the substring
+
+### Other command capibilities
+* History substitution
+* Command editing
+* Auto-completion
+
+## Tilde substitution
+Tilde substitutions in Bash.
+
+* ~ - Replaced by `$HOME`
+* ~user - home directory of `user`
+* ~/pathname - `$HOME/pathname`
+* ~+ - `$PWD`
+* ~- - `$OLDPWD`
+
+## Redirection
+Bash supplies redirection capability over standard shell redirection.
+
+`command << [-] word`
+
+If word is preceded by a -, then leading tabs are removed from the lines of input that follow. Here's an example:
+
+```
+$ cat <<- ENDOFTEXT
+>   this input contains
+>       some leading tabs
+> ENDOFTEXT
+this input contains
+some leading tabs
+```
+
+This allows "here" text in a script to be indented to match the nearby shell commands without affecting how the text is used.
+
+## Command substitution
+In addition to the older method of command substitutions, you can also do
+
+`$( command )`
+
+Note that the $ that immediately precedes the open parentheses is part of the syntax, and is not a prompt. Here's an example:
+
+```
+$ echo there are $(who | wc -l) users on the system
+there are 6 users on the system
+```
+
+To substitute the contents of a file into a shell command, you may use
+
+`$(<file)` as a faster form of `$(cat file)`.

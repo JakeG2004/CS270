@@ -252,4 +252,21 @@ there are 6 users on the system
 
 To substitute the contents of a file into a shell command, you may use
 
-`$(<file)` as a faster form of `$(cat file)`.
+`$(< file)` as a faster form of `$(cat file)`.
+
+## Arithmetic
+To perform an arithmetic operation in Bash, you simply put the operation inside a *double* set of parernthesis
+
+`(( operation ))`
+
+Common numeric operations include those listed below
+* +, -: Addition and subtraction
+* ++, --: Increment, decrement
+* *, /, %: Multiplication, division, remainder
+* **: Exponentiation
+
+Integer arithmetic is faster than floating-point arithmetic, If you know your variable will always be an integer (like a counter or array index), you can use the *declare* built-in to declare it to be an integer.
+
+Shell command: `declare -i name`
+
+This form of declare defines the variable name as an integer value.

@@ -135,3 +135,41 @@ do
     while[$y -le $1]
     do
         echo -n -e `expr $x \* $y`"   \t"
+```
+
+## Track
+This script tracks a user's logins and logouts, generating a report of their sessions
+```
+pause=20                                  # default pause between scans
+loopCount=10000                           # default scan count
+error=0                                   # error flag
+
+for arg in $*                             # parse command line arguments
+do
+  case $arg in
+    -t*)                                  # time
+      pause='expr substring $arg 3 10'    # extract number
+      ;;
+    -n*)                                  # scan count
+      loopCount='expr substr $arg 3 10'   # extract number
+      ;;
+    *)
+      user=$arg                           # user name
+      ;;
+  esac
+done
+
+if [ ! "$user" ]                          # check a user ID was found
+then
+  error=1
+fi
+
+if [ $error -eq 1]                        # display error if error(s) found
+then
+  cat << ENDOFERROR                       # display usage message
+usage: track [-n#] [-t#] userId
+ENDOFERROR
+fi
+
+MORE LOGIC IN HERE THAT I DONT WANT TO COPY <3
+```

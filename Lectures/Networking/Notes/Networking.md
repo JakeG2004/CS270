@@ -95,3 +95,61 @@ In this diagram, the token is passed around as a -> b -> c -> d -> e -> f -> a, 
 
 ### Bus
 In a bus system, the computers share the media (coax cable) for data transmission. In this topology, a coax cable (called ThinNet) is looped through each networking device to facilitate data transfer.
+
+## Interconnecting LANS
+LANs may be connected :smile:
+
+## OSI Model
+An open system interconnect (OSI) reference model was developed by the International Organization for Standardization in 1984 to enable different types of networks to be linked together.
+The model contains seven layers, below. These layers describe networking functions from the physical network interface to the software applications interfaces. The intent of the OSI
+model is to provide a framework for networking that ensures compatibility in the network hardware and software and to accelerate the development of new networking technologies.
+
+```
++----------------+
+|7) Application  |
+|----------------+
+|6) Presentation |
+|----------------|
+|5) Session      |
+|----------------|
+|4) Transport    |
+|----------------|
+|3) Network      |
+|----------------|
+|2) Data link    |
+|----------------|
+|1) Physical     |
++----------------+
+```
+
+### Summary of the OSI Layers
+| Layer | Function | Examples |
+| ----- | -------  | -------- |
+| 7. Application | Support for applications | HTTPS, FTP, SMTP |
+| 6. Presentation | Protocol conversion, data translation | ASCII, JPG |
+| 5. Session | Establishes, manages, and terminates sessions | NFS, SQL|
+| 4. Transport | Ensures error free packets | TCP, UDP|
+| 3. Network | Provides routing decisions | IP, IPX |
+| 2. Datalink | Provides for the flow of data | MAC Addresses|
+| 1. Physical | Signals and media | Network Interface Card, Twisted Pairs, Fiber |  
+
+#### Physical Layer
+Provides the electrical and mechanical connection to the network. Examples of technologies working in this layer are EIA / TIA related technologies, UTP, fiber, and NICs
+
+#### Datalink Layer
+Handles error recovery, flow control, and sequencing (which terminals are sending and which are receiving). It is consideredthe media access control layer and is where MAC addressing is defined. The Ethernet 802.3 standard is defined in this area, which is why the MAC address is sometimes called the Ethernet address.
+
+#### Network Layer
+Accepts outgoing messages and combines messages or segments into packets, adding a header that includes routing information. It acts as the network controller. Examples are IP and IPX.
+
+#### Transport Layer
+Is concerned with message integrity between source and destination. It also segments / reassembles packets and handles flow control. Examples are TCP and UDP.
+
+#### Session Layer
+Provides the control functions necessary to establish, manage, and terminate the connections as required to satisfy the user request. Examples are NFS and SQL.
+
+#### Presentation Layer
+Accepts and structures the messages for the application. It translates the message from one code to another if necessary. This layer is responsible for data compression and encryption. Examples are ASCII and JPG.
+
+#### Application Layer
+Interacts with application programs that incorporate a communication component such as your Internet Browser and Email. This layer is responsible for logging the message in, interpreting the request, and determining what information is needed to support the request. Examples are Internet Browsers, Messaging Services, Online Games, HTTP, FTP, SMTP.

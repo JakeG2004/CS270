@@ -6,21 +6,21 @@ arg=$2						# get second argument
 > out.txt					# clear out.txt
 
 # Test that the filename exists
-if [ "$fileName" = "" ]				# test that filename exists
+if [ "$fileName" = "" ]
 then
 	echo "Invalid argument! usage: p1 <filename> <-a> <-r>"
 	exit
 fi
 
 # Test that argument exists
-if [ "$arg" = "" ]				# test that argument exists
+if [ "$arg" = "" ]
 then
 	echo "Invalid argument! usage: p1 <filename> <-a> <-r>"
 	exit
 fi
 
 # Flag for whether the file exists or not
-fileExists=`ls $fileName | wc -l`		# search for the file
+fileExists=`ls $fileName 2>/dev/null | wc -l`
 
 # Test that file exists
 if [ $fileExists -eq 0 ]			# test that the file exists

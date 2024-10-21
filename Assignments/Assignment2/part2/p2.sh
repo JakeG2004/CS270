@@ -2,7 +2,7 @@
 fileName=$1
 
 # Check for file existence
-fileExists=`ls $fileName | wc -l`
+fileExists=`ls $fileName 2>/dev/null | wc -l`
 
 # Ensure that the file exists
 if [ $fileExists -eq 0 ]
@@ -18,7 +18,7 @@ lowerCaseFileName=`echo "$fileName" | tr '[:upper:]' '[:lower:]'`
 finalName=${lowerCaseFileName//_}
 
 # Ensure that new file won't overwrite an old one
-fileExists=`ls $finalName | wc -l`
+fileExists=`ls $finalName 2>/dev/null | wc -l`
 
 if [ $fileExists -gt 0 ]
 then

@@ -1,0 +1,17 @@
+$ ls
+p2.sh
+scriptOut.txt
+TEST_whOA.MP3
+
+$ ./p2.sh 
+Invalid usage! ./p2.sh <fileName>
+
+$ ./p2.sh TEST_whOA.MP3 
+
+$ ls
+p2.sh
+scriptOut.txt
+testwhoa.mp3
+
+$ ./p2.sh test
+File test doesn't exist!

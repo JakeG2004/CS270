@@ -1,0 +1,18 @@
+$ ./p1.sh 
+Invalid argument! usage: p1 <filename> <-a> <-r>
+
+$ ./p1.sh test.txt -a
+
+$ cat out.txt 
+1 Now is
+2 the time
+3 to add
+4 numbers
+
+$ ./p1.sh wNums.txt -r
+
+$ cat out.txt
+Now is
+the time
+to add
+numbers

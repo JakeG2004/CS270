@@ -1,6 +1,12 @@
 # Change arguments to be more readable
 fileName=$1
 
+if [ "$fileName" = "" ]
+then
+	echo "Invalid usage! ./p2.sh <fileName>"
+	exit
+fi
+
 # Check for file existence
 fileExists=`ls $fileName 2>/dev/null | wc -l`
 

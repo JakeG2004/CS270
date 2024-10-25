@@ -1,0 +1,17 @@
+Script started on 2024-10-24 20:46:10-07:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="208" LINES="14"]
+[?2004h]0;jake@pop-os: ~/Documents/Schoolwork/CS270/Assignments/Assignment2[01;32mjake@pop-os[00m:[01;34m~/Documents/Schoolwork/CS270/Assignments/Assignment2[00m$ exit./part1/p1.sh test.txt -a[1@p[1@a[1@r[C[1@t[1@1[1@/
+[?2004l[?2004h]0;jake@pop-os: ~/Documents/Schoolwork/CS270/Assignments/Assignment2[01;32mjake@pop-os[00m:[01;34m~/Documents/Schoolwork/CS270/Assignments/Assignment2[00m$ cat part1/out.txt 
+[?2004l1 Now is
+2 the time
+3 to add
+4 numbers
+[?2004h]0;jake@pop-os: ~/Documents/Schoolwork/CS270/Assignments/Assignment2[01;32mjake@pop-os[00m:[01;34m~/Documents/Schoolwork/CS270/Assignments/Assignment2[00m$ cat part1/out.txt ./part1/p1.sh part1/test.txt -a[1P[1P[1P[1P[1@w[1@N[1@u[1@m[1@s[C[C[C[C[C[C[C[Kr
+[?2004l[?2004h]0;jake@pop-os: ~/Documents/Schoolwork/CS270/Assignments/Assignment2[01;32mjake@pop-os[00m:[01;34m~/Documents/Schoolwork/CS270/Assignments/Assignment2[00m$ ./part1/p1.sh part1/wNums.txt -r[14Pcat part1/out.txt 
+[?2004l1 Now is
+2 the time
+3 to add
+4 numbers
+[?2004h]0;jake@pop-os: ~/Documents/Schoolwork/CS270/Assignments/Assignment2[01;32mjake@pop-os[00m:[01;34m~/Documents/Schoolwork/CS270/Assignments/Assignment2[00m$ exit
+[?2004lexit
+
+Script done on 2024-10-24 20:46:50-07:00 [COMMAND_EXIT_CODE="0"]

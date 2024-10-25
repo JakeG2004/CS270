@@ -1,0 +1,44 @@
+$ ls -a
+.
+..
+backup.sh
+scriptOut.txt
+src
+
+$ ls src
+testDir
+test.md  
+test.txt
+
+$ ls src2
+testDir
+test.md  
+test2.txt
+
+$ ./backup.sh src/
+
+$ ls -a
+.
+..
+.backup
+backup.sh
+scriptOut.txt
+src
+
+$ ls .backup
+testDir
+test.md  
+test.txt
+
+$ ./backup.sh src2
+File testDir exists in .backup. Would you like to overwrite? (y/n)
+y
+Overwriting testDir...
+File test.md exists in .backup. Would you like to overwrite? (y/n)
+n
+
+$ ls .backup
+testDir  
+test.md  
+test.txt
+test2.txt

@@ -34,7 +34,7 @@ Manages connection, data transfer, and termination between 2+ computers
 * Options + Padding
 
 ### UDP Header
-8 Octets (8 bits) = 640 bits
+8 Octets (8 bytes) = 64 bits
 * Source Port
 * Destination Port
 * Segment Length

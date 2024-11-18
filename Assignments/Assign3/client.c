@@ -1,21 +1,24 @@
-#include <netinet/in.h> // Struct for storing addr info
+#include <netinet/in.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include <sys/socket.h> // for socket APIs
+#include <sys/socket.h>
 #include <unistd.h>
 
 #include "netInfo.h"
 
+/*=====NETWORKING FUNCTIONS=====*/
 int ConnectToServer(int sockD);
 int ReceiveData(int sockD, char* strData, int strSize);
 
+/*=====GET INPUT=====*/
 char* GetUserExpression();
-
 int GetOperands(int* op1, int* op2, char* expression);
 
+/*=====STRING PROCESSING=====*/
 int isOperator(char curChar);
 int isNum(char curChar);
+
 
 int main(int argc, char* argv)
 {
@@ -27,7 +30,7 @@ int main(int argc, char* argv)
 
     if(send(sockD, expression, MAX_STRING_SIZE, 0) == -1)
     {
-        printf("Failed to send\n");
+        perror("Failed to send");
     }
 
     char* strData = (char*)malloc(sizeof(char ) * MAX_STRING_SIZE);
@@ -79,7 +82,6 @@ int ReceiveData(int sockD, char* strData, int strSize)
     return 1;
 }
 
-
 char* GetUserExpression()
 {
     char* expression = (char*)malloc(sizeof(char) * MAX_STRING_SIZE);
@@ -129,6 +131,8 @@ char* GetUserExpression()
         // Valid string
         validInput = 1;
     }
+
+    return expression;
 }
 
 int GetOperands(int* op1, int* op2, char* expression)
@@ -203,6 +207,7 @@ int isNum(char curChar)
 
     return 0;
 }
+
 int isOperator(char curChar)
 {
     char* validChars = "+-/%%*";

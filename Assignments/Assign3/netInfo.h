@@ -5,7 +5,7 @@
 #include <sys/socket.h> // for socket APIs
 #include <unistd.h>
 
-const int SOCK_PORT = 9001;
+const int SOCK_PORT = 4501;
 const int MAX_STRING_SIZE = 255;
 
 typedef struct sockaddr_in sockaddr_in;

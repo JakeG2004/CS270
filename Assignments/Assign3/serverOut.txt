@@ -1,0 +1,11 @@
+Script started on 2024-11-18 12:55:43-08:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+[?2004h]0;jake@pop-os: ~/Documents/Schoolwork/CS270/Assignments/Assign3[01;32mjake@pop-os[00m:[01;34m~/Documents/Schoolwork/CS270/Assignments/Assign3[00m$ ./server 
+[?2004lSERVER: Open and waiting for connection...
+Connected to 4
+CLIENT: + 9 8
+SERVER: Result is 17
+Closing server...
+[?2004h]0;jake@pop-os: ~/Documents/Schoolwork/CS270/Assignments/Assign3[01;32mjake@pop-os[00m:[01;34m~/Documents/Schoolwork/CS270/Assignments/Assign3[00m$ exit
+[?2004lexit
+
+Script done on 2024-11-18 12:56:05-08:00 [COMMAND_EXIT_CODE="0"]

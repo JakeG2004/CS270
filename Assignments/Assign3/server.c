@@ -4,6 +4,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <string.h>
 
 #include "netInfo.h"
 
@@ -17,8 +18,6 @@ int main(int argc, char const* argv[])
     // Create socket
     int servSockD = CreateSocket();
 
-    char serMsg[255] = "FROM SERVER - \"Hello!\"\n";
-
     sockaddr_in servAddr;
 
     servAddr.sin_family = AF_INET;
@@ -28,27 +27,35 @@ int main(int argc, char const* argv[])
     // Bind the socket to the port
     bind(servSockD, (sockaddr*)&servAddr, sizeof(servAddr));
 
+    printf("SERVER: Open and waiting for connection...\n");
+
     // Listen for connections
     listen(servSockD, 1);
 
     // Hold client socket
     int clientSocket = accept(servSockD, NULL, NULL);
 
+    printf("Connected to %i\n", clientSocket);
+
     // Receive data from client
     char strData[MAX_STRING_SIZE];
     if(ReceiveData(clientSocket, strData, MAX_STRING_SIZE) == 0)
     {
-        printf("Failed ro receive data\n");
+        printf("Failed to receive data\n");
         exit(-1);
     }
 
     int result = ParseExpression(strData);
     char retStr[MAX_STRING_SIZE];
 
+    printf("CLIENT: %s", strData);
+    printf("SERVER: Result is %i\n", result);
+
     snprintf(retStr, MAX_STRING_SIZE, "SERVER: The result is %i", result);
 
     send(clientSocket, retStr, MAX_STRING_SIZE, 0);
 
+    printf("Closing socket...\n");
     close(clientSocket);
     close(servSockD);
 }

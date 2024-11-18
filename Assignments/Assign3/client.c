@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <string.h>
 
 #include "netInfo.h"
 
@@ -22,17 +23,25 @@ int isNum(char curChar);
 
 int main(int argc, char* argv)
 {
+    printf("CLIENT: Creating Socket...\n");
+
     int sockD = CreateSocket();
+
+    printf("CLIENT: Connecting to server...\n");
 
     ConnectToServer(sockD);
 
+    printf("CLIENT: Connected to server.\n");
+
     char* expression = GetUserExpression();
 
+    // Attempt to send
     if(send(sockD, expression, MAX_STRING_SIZE, 0) == -1)
     {
         perror("Failed to send");
     }
 
+    // Get data from server
     char* strData = (char*)malloc(sizeof(char ) * MAX_STRING_SIZE);
     int receiveCondition = ReceiveData(sockD, strData, MAX_STRING_SIZE);
 
@@ -42,8 +51,10 @@ int main(int argc, char* argv)
         exit(-1);
     }
 
+    // Print data
     printf("%s\n", strData);
 
+    printf("Closing socket...\n");
     // Close socket
     close(sockD);
 }
@@ -86,6 +97,11 @@ char* GetUserExpression()
 {
     char* expression = (char*)malloc(sizeof(char) * MAX_STRING_SIZE);
     int validInput = 0;
+
+    if(strncmp(expression, "quit", MAX_STRING_SIZE) == 0)
+    {
+        return expression;
+    }
 
     // Loop to get valid input
     while(!validInput)

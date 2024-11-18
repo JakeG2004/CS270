@@ -1,0 +1,13 @@
+Script started on 2024-11-18 12:55:37-08:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="80" LINES="24"]
+[?2004h]0;jake@pop-os: ~/Documents/Schoolwork/CS270/Assignments/Assign3[01;32mjake@pop-os[00m:[01;34m~/Documents/Schoolwork/CS270/Assignments/Assign3[00m$ ./client 
+[?2004lCLIENT: Creating Socket...
+CLIENT: Connecting to server...
+CLIENT: Connected to server.
+Enter a valid expression (<operator> <operand> <operand>)
++ 9 8
+SERVER: The result is 17
+Closing socket...
+[?2004h]0;jake@pop-os: ~/Documents/Schoolwork/CS270/Assignments/Assign3[01;32mjake@pop-os[00m:[01;34m~/Documents/Schoolwork/CS270/Assignments/Assign3[00m$ exit
+[?2004lexit
+
+Script done on 2024-11-18 12:56:03-08:00 [COMMAND_EXIT_CODE="0"]

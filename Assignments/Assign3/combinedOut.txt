@@ -1,0 +1,17 @@
+====== SERVER ======
+jake@pop-os:~/Documents/Schoolwork/CS270/Assignments/Assign3$ ./server
+SERVER: Open and waiting for connection...
+Connected to 4
+CLIENT: + 9 8
+SERVER: Result is 17
+Closing server...
+
+====== CLIENT ======
+jake@pop-os:~/Documents/Schoolwork/CS270/Assignments/Assign3$ ./client
+CLIENT: Creating Socket...
+CLIENT: Connecting to server...
+CLIENT: Connected to server.
+Enter a valid expression (<operator> <operand> <operand>)
++ 9 8
+SERVER: The result is 17
+Closing socket...
